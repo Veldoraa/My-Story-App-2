@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Story APP</string>
+
+    <string name="name">Name</string>
+
+    <string name="login_title">Login User </string>
+
+    <string name="invalid_email"> Invalid Email</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="name_required">Harus Masukkan Nama</string>
+    <string name="email_valid">Email Valid</string>
+    <string name="email_invalid">Email Invalid</string>
+    <string name="password_valid"> Password Valid </string>
+    <string name="password_invalid"> Password Invalid </string>
+    <string name="register">Register</string>
+    <string name="warning_password">Password Harus Melebihi 6 Karakter</string>
+    <string name="warning_email">Invalid email</string>
+    <string name="caution">Peringatan!</string>
+    <string name="To_do">Anda Ingin Keluar?</string>
+    <string name="Yes">Yes</string>
+    <string name="No">No</string>
+    <string name="camera">Camera</string>
+    <string name="upload">Upload</string>
+    <string name="get_gallery">Add Gallery</string>
+    <string name="caption">Add Caption</string>
+    <string name="message_error">Upload Gagal</string>
+    <string name="retry">Reloading</string>
+
+    <string name="text_login">Tidak Punya Password? Silahkan,</string>
+    <string name="setting">Pengaturan</string>
+    <string name="logout">Logout</string>
+    <string name="menu_maps">Maps</string>
+    <string name="add">Add Story</string>
+    <string name="title_maps_story">MapsStory</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_description">Silahkan Masukkan Deskripsi</string>
+    <string name="from_camera">Camera</string>
+    <string name="from_gallery">Gallery</string>
+    <string name="create_story">Add Story</string>
+    <string name="gambar_splash">Image Splash</string>
+    <string name="maps">Pin Maps</string>
+    <string name="addStory">Tambah Story</string>
+    <string name="tt_regist">Please Register</string>
+    <string name="register_title">Please Register</string>
+    <string name="inp_password">Password</string>
+    <string name="register_message">Isi Data Anda Disini</string>
+    <string name="iv_regist">Image Register</string>
+    <string name="img_preview">Image Preview Story</string>
+
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="normal_type">Normal</string>
+    <string name="satellite_type">Satellite</string>
+    <string name="terrain_type">Terrain</string>
+    <string name="hybrid_type">Hybrid</string>
+</resources>

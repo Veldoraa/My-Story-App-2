@@ -1,0 +1,51 @@
+Skenario Testing Story App 2
+
+1. AddStoryViewModels
+	a. Ketika berhasil memuat data addStory
+		- Memastikan mengembalikan Result.Success
+		- Memastikan data tidak null
+		- Memastikan upload gambar sukses
+
+	b. Ketika gagal melakukan add story
+		- Memastikan mengembalikan Result.Error
+
+2. LoginViewModels
+
+	a. Ketika berhasil login untuk user
+		- Memastikan mengembalikan Result.Success
+		- Memastikan data tidak null
+		- Memastikan data user sesuai dengan yang diinputkan pada halaman registrasi
+
+	b. Ketika user gagal login
+		- Memastikan mengembalikan Result.Error
+
+3. MainViewModels
+
+	a. Ketika berhasil memuat data list story
+		- Memastikan mengembalikan Result.Success
+		- Memastikan data tidak null
+		- Memastikan jumlah data sesuai dengan yang diharapkan
+		- Memastikan gambar dan deskripsinya
+
+4. MapViewModels
+
+	a. Ketika berhasil memuat list story dengan lokasi
+		- Memastikan mengembalikan Result.Success
+		- Memastikan data tidak null
+		- Memastikan data yang didapatkan sesuai yang diharapkan
+		- Memastikan marker dapat tampil di peta
+		- Memastikan jenis-jenis maps yang ada di peta
+
+	b. Ketika gagal memuat list story dengan lokasi
+		- Memastikan mengembalikan Result.Error
+
+
+5. RegisterViewModel
+
+	a.Ketika user berhasil register
+		- Memastikan mengembalikan Result.Success
+		- Memastikan data tidak null
+		- Memastikan kriteria yang sesuai dengan intruksi saat melakukan  registrasi
+
+	b. Ketika user gagal register
+		- Memastikan mengembalikan Result.Error
