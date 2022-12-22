@@ -4,7 +4,7 @@ Skenario Testing Story App 2
 	a. Ketika berhasil memuat data addStory
 		- Memastikan mengembalikan Result.Success
 		- Memastikan data tidak null
-		- Memastikan upload gambar sukses
+		- Memastikan upload gambar dan deskripsi sukses
 
 	b. Ketika gagal melakukan add story
 		- Memastikan mengembalikan Result.Error
@@ -25,7 +25,7 @@ Skenario Testing Story App 2
 		- Memastikan mengembalikan Result.Success
 		- Memastikan data tidak null
 		- Memastikan jumlah data sesuai dengan yang diharapkan
-		- Memastikan gambar dan deskripsinya
+		- Memastikan gambar dan deskripsinya sesuai ketika upload
 
 4. MapViewModels
 
