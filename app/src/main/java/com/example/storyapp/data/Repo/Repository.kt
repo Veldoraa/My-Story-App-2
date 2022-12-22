@@ -109,16 +109,16 @@ class Repository private constructor(
     ): LiveData<Result<LoginResult>> = liveData {
         emit(Result.Loading)
         try {
-            val response = apiService.userLogin(
+            val responseLogin = apiService.userLogin(
                 email,
                 password
             )
-            if (response.error){
-                Log.d("error response", "true: ${response.error} ")
-                emit(Result.Error(response.message))
+            if (responseLogin.error){
+                Log.d("error response", "true: ${responseLogin.error} ")
+                emit(Result.Error(responseLogin.message))
             }else {
-                Log.d("error response", "false: ${response.error} ")
-                emit(Result.Success(response))
+                Log.d("error response", "false: ${responseLogin.error} ")
+                emit(Result.Success(responseLogin))
             }
     } catch (e : Exception){
             Log.d("StoryRepository", "error: ${e.message.toString()} ")

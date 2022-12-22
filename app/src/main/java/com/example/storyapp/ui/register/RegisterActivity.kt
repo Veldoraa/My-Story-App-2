@@ -45,7 +45,7 @@ class RegisterActivity : AppCompatActivity() {
                             binding.regisProgressBar.gone()
                             Toast.makeText(
                                 this,
-                                "register success , silahkan login${result.data.massage}",
+                                "register success , silahkan login ${result.data.massage}",
                                 Toast.LENGTH_SHORT
                             )
                                 .show()
@@ -70,24 +70,24 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun playAnimation() {
-        val img =
+        val image =
             ObjectAnimator.ofFloat(binding.imageRegist, View.ALPHA, 1f).setDuration(500)
-        val text1 =
+        val tvJudul =
             ObjectAnimator.ofFloat(binding.tvJudul, View.ALPHA, 1f).setDuration(500)
-        val text2 =
+        val tvDesc =
             ObjectAnimator.ofFloat(binding.tvDesc, View.ALPHA, 1f).setDuration(500)
-        val inputtNama =
+        val tvName =
             ObjectAnimator.ofFloat(binding.inpName, View.ALPHA, 1f).setDuration(500)
-        val inputtEmail =
+        val tvEmail =
             ObjectAnimator.ofFloat(binding.inpRegisEmail, View.ALPHA, 1f).setDuration(500)
-        val inputPassword =
+        val tvPass =
             ObjectAnimator.ofFloat(binding.inpRegisPassword, View.ALPHA, 1f).setDuration(500)
-        val btnSignup =
+        val btnRegis =
             ObjectAnimator.ofFloat(binding.btnRegist, View.ALPHA, 1f).setDuration(500)
 
         AnimatorSet().apply {
             playSequentially(
-                img,text1,text2, inputtNama, inputtEmail, inputPassword, btnSignup,
+                image, tvJudul, tvDesc, tvName, tvEmail, tvPass, btnRegis
             )
             startDelay = 500
         }.start()

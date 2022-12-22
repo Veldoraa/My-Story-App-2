@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun listStory() {
         val listStoryAdapter = StoryListAdapter()
-        val factory = ViewModelFactory.getInstance(this)
-        val viewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
+        val factoryModels = ViewModelFactory.getInstance(this)
+        val viewModel = ViewModelProvider(this, factoryModels)[MainViewModel::class.java]
 
         binding.rvStory.adapter = listStoryAdapter.withLoadStateFooter(
             footer = LoadingStateAdapter {

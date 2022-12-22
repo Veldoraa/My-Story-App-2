@@ -38,9 +38,9 @@ class AddStoryViewModelsTest{
 
     @Test
     fun `when add story success should not null and return success`() {
-        val expectedResponse = MutableLiveData<Result<UploadDataResponse>>()
-        expectedResponse.value = Result.Success(dummyAddStoryResponse)
-        Mockito.`when`(repository.uploadLiveStory("bearer", "foto", dummyMockFile)).thenReturn(expectedResponse)
+        val responseExpect = MutableLiveData<Result<UploadDataResponse>>()
+        responseExpect.value = Result.Success(dummyAddStoryResponse)
+        Mockito.`when`(repository.uploadLiveStory("bearer", "foto", dummyMockFile)).thenReturn(responseExpect)
 
         val actualUploadResponse = addStoryViewModel.uploadStory("bearer", "foto", dummyMockFile).getOrAwaitValue()
         Mockito.verify(repository).uploadLiveStory("bearer", "foto", dummyMockFile)

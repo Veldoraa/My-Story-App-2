@@ -35,15 +35,15 @@ class MapViewModelsTest{
 
     @Test
     fun `when Get Mark List Should Not Null and Return Success`() {
-        val expectedMarker = MutableLiveData<Result<List<StoryResponseItem>>>()
-        expectedMarker.value = Result.Success(dummyMarker)
-        Mockito.`when`(repository.getListStoryByMaps(1, "Bearer")).thenReturn(expectedMarker)
+        val markExpect = MutableLiveData<Result<List<StoryResponseItem>>>()
+        markExpect.value = Result.Success(dummyMarker)
+        Mockito.`when`(repository.getListStoryByMaps(1, "Bearer")).thenReturn(markExpect)
 
-        val actualMarker = mapsViewModel.getStoryByMaps(1, "Bearer").getOrAwaitValue()
+        val actualMark = mapsViewModel.getStoryByMaps(1, "Bearer").getOrAwaitValue()
         Mockito.verify(repository).getListStoryByMaps(1, "Bearer")
-        assertNotNull(actualMarker)
-        assertTrue(actualMarker is Result.Success)
-        assertEquals(dummyMarker.size, (actualMarker as Result.Success).data.size)
+        assertNotNull(actualMark)
+        assertTrue(actualMark is Result.Success)
+        assertEquals(dummyMarker.size, (actualMark as Result.Success).data.size)
     }
 
     @Test

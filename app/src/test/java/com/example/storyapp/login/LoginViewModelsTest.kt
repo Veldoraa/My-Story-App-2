@@ -35,10 +35,10 @@ class LoginViewModelsTest{
 
     @Test
     fun `when login success Should Not Null and Return Success`() {
-        val expectedResponse = MutableLiveData<Result<LoginResult>>()
-        expectedResponse.value = Result.Success(dummyLoginResponse)
+        val responseExpect = MutableLiveData<Result<LoginResult>>()
+        responseExpect.value = Result.Success(dummyLoginResponse)
         Mockito.`when`(repository.login("yuan@apalah.com", "yuan"))
-            .thenReturn(expectedResponse)
+            .thenReturn(responseExpect)
 
         val actualLoginResponse = loginViewModel.loginUser("yuan@apalah.com", "yuan").getOrAwaitValue()
         Mockito.verify(repository).login("yuan@apalah.com", "yuan")

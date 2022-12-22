@@ -43,9 +43,9 @@ class MainViewModelTest{
     fun `when Get Story Should Not Null and Return Success`() = runTest {
         val dummyStory = DataDummy.generateDummyStoryResponse()
         val data: PagingData<Entity> = StoryPagingSource.snapshot(dummyStory)
-        val expectedStory = MutableLiveData<PagingData<Entity>>()
-        expectedStory.value = data
-        Mockito.`when`(repository.getStoryList()).thenReturn(expectedStory)
+        val storyExpect = MutableLiveData<PagingData<Entity>>()
+        storyExpect.value = data
+        Mockito.`when`(repository.getStoryList()).thenReturn(storyExpect)
 
         val storyViewModel = MainViewModel(repository)
         val actualStory: PagingData<Entity> = storyViewModel.storyList.getOrAwaitValue()

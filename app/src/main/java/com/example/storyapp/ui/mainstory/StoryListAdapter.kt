@@ -14,11 +14,25 @@ import com.example.storyapp.databinding.RvItemBinding
 
 class StoryListAdapter: PagingDataAdapter<Entity, StoryListAdapter.ViewHolder>(DIFF_CALLBACK) {
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val viewBindingItem =
+            RvItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(viewBindingItem)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val dataStory = getItem(position)
+        if (dataStory != null) {
+            holder.bind(dataStory)
+        }
+    }
+
     class ViewHolder(binding: RvItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         private var imgPhoto  = binding.ivImage
         private var tvName = binding.tvName
+        private var tvDesc = binding.tvDescription
 
         fun bind(dataStory: Entity) {
             Glide.with(itemView.context)
@@ -27,25 +41,13 @@ class StoryListAdapter: PagingDataAdapter<Entity, StoryListAdapter.ViewHolder>(D
                 .into(imgPhoto)
 
             tvName.text = dataStory.name
+            tvDesc.text = dataStory.description
             itemView.setOnClickListener {
 
-                val moveDetail = Intent(itemView.context, StoryDetailActivity::class.java)
-                moveDetail.putExtra("story", dataStory)
-                itemView.context.startActivity(moveDetail)
+                val detailMove = Intent(itemView.context, StoryDetailActivity::class.java)
+                detailMove.putExtra("story", dataStory)
+                itemView.context.startActivity(detailMove)
             }
-        }
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemViewBinding =
-            RvItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ViewHolder(itemViewBinding)
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val dataStory = getItem(position)
-        if (dataStory != null) {
-            holder.bind(dataStory)
         }
     }
 

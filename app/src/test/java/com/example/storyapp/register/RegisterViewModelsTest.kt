@@ -35,10 +35,10 @@ class RegisterViewModelsTest{
 
     @Test
     fun `when register success Should Not Null and Return Success`() {
-        val expectedResponse = MutableLiveData<Result<RegisterResponse>>()
-        expectedResponse.value = Result.Success(dummyRegisterResponse)
+        val responseExpect = MutableLiveData<Result<RegisterResponse>>()
+        responseExpect.value = Result.Success(dummyRegisterResponse)
         Mockito.`when`(repository.register("yuan", "yuan@apalah.com", "123"))
-            .thenReturn(expectedResponse)
+            .thenReturn(responseExpect)
 
         val actualLoginResponse = registerViewModel.registerUser("yuan", "yuan@apalah.com", "123").getOrAwaitValue()
         Mockito.verify(repository).register("yuan", "yuan@apalah.com", "123")
@@ -49,9 +49,9 @@ class RegisterViewModelsTest{
 
     @Test
     fun `when register failed or error should return error`() {
-        val registerResponse = MutableLiveData<Result<RegisterResponse>>()
-        registerResponse.value = Result.Error("Error")
-        Mockito.`when`(repository.register("yuan", "yuan@apalah.com", "123")).thenReturn(registerResponse)
+        val regisResponse = MutableLiveData<Result<RegisterResponse>>()
+        regisResponse.value = Result.Error("Error")
+        Mockito.`when`(repository.register("yuan", "yuan@apalah.com", "123")).thenReturn(regisResponse)
 
         val actualResponse = registerViewModel.registerUser("yuan", "yuan@apalah.com", "123").getOrAwaitValue()
         Mockito.verify(repository).register("yuan", "yuan@apalah.com", "123")

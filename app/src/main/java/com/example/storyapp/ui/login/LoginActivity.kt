@@ -20,11 +20,11 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var sharedPref: SharedPreferences
 
     private fun login() {
-        val factory = ViewModelFactory.getInstance(this)
-        val loginVm: LoginViewModels by viewModels { factory }
+        val factoryModels = ViewModelFactory.getInstance(this)
+        val loginVm: LoginViewModels by viewModels { factoryModels }
         val email = binding.edEmail.text.toString().trim()
-        val password = binding.edPassword.text.toString().trim()
-        loginVm.loginUser(email, password).observe(this) { result ->
+        val pass = binding.edPassword.text.toString().trim()
+        loginVm.loginUser(email, pass).observe(this) { result ->
             if (result != null) {
                 when (result) {
                     is Result.Loading -> {
@@ -76,34 +76,35 @@ class LoginActivity : AppCompatActivity() {
 
         playAnimation()
         editTextFilled()
+
         binding.btnLogin.setOnClickListener {
             login()
         }
         binding.register.setOnClickListener {
-            val intennt = Intent(this@LoginActivity, RegisterActivity::class.java)
-            startActivity(intennt)
+            val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 
     private fun playAnimation() {
-        val img =
+        val image =
             ObjectAnimator.ofFloat(binding.imageLogin, View.ALPHA, 1f).setDuration(500)
-        val text1 =
+        val tvLogin =
             ObjectAnimator.ofFloat(binding.textLogin1, View.ALPHA, 1f).setDuration(500)
-        val text3 =
+        val tvRegis =
             ObjectAnimator.ofFloat(binding.textToRegist, View.ALPHA, 1f).setDuration(500)
-        val email =
+        val tvEmail =
             ObjectAnimator.ofFloat(binding.inpEmail, View.ALPHA, 1f).setDuration(500)
-        val pass =
+        val tvPass =
             ObjectAnimator.ofFloat(binding.inpPassword, View.ALPHA, 1f).setDuration(500)
         val btnLogin =
             ObjectAnimator.ofFloat(binding.btnLogin, View.ALPHA, 1f).setDuration(500)
-        val signUp =
+        val btnRegis =
             ObjectAnimator.ofFloat(binding.register, View.ALPHA, 1f).setDuration(500)
 
         AnimatorSet().apply {
             playSequentially(
-                img, text1, text3, email, pass, btnLogin, signUp
+                image, tvLogin, tvRegis, tvEmail, tvPass, btnLogin, btnRegis
             )
             startDelay = 500
         }.start()

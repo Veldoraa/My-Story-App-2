@@ -25,7 +25,7 @@ import java.io.File
 
 class AddStoryActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddStoryBinding
-    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var preferences: SharedPreferences
     private var file: File? = null
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
@@ -110,14 +110,14 @@ class AddStoryActivity : AppCompatActivity() {
     }
 
     private fun uploadImage() {
-        val factory = ViewModelFactory.getInstance(this)
-        val viewModel: AddStoryViewModels by viewModels { factory }
-        sharedPreferences = SharedPreferences(this)
+        val factoryModels = ViewModelFactory.getInstance(this)
+        val viewModel: AddStoryViewModels by viewModels { factoryModels }
+        preferences = SharedPreferences(this)
         if (file != null && !binding.etAdd.text.isNullOrEmpty()) {
             val files = reduceFileImage(file as File)
             val description = binding.etAdd.text.toString()
             val requestImageFile = files.asRequestBody("image/jpeg".toMediaTypeOrNull())
-            viewModel.uploadStory(sharedPreferences.getToken(), description, files)
+            viewModel.uploadStory(preferences.getToken(), description, files)
                 .observe(this) { result ->
                     if (result != null) {
                         when (result) {
